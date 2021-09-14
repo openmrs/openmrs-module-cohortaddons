@@ -14,19 +14,19 @@ import org.openmrs.module.BaseModuleActivator;
 
 @Slf4j
 public class CohortAddonsActivator extends BaseModuleActivator {
-
+	
 	/**
 	 * @see #started()
 	 */
 	public void started() {
 		log.info("Started Cohort Addons Module");
 	}
-
+	
 	/**
 	 * @see #shutdown()
 	 */
 	public void shutdown() {
 		log.info("Shutdown Cohort Addons Module");
 	}
-
+	
 }

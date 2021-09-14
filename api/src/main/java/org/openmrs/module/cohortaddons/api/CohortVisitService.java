@@ -16,14 +16,14 @@ import org.openmrs.module.cohortaddons.CohortAddonsConfig;
 import org.springframework.transaction.annotation.Transactional;
 
 public interface CohortVisitService extends OpenmrsService {
-
+	
 	@Authorized()
 	@Transactional(readOnly = true)
 	Object getItemByUuid(String uuid) throws APIException;
 	
 	/**
-	 * Saves an item. Sets the owner to superuser, if it is not set. It can be called by users with
-	 * this module's privilege. It is executed in a transaction.
+	 * Saves an item. Sets the owner to superuser, if it is not set. It can be called by users with this
+	 * module's privilege. It is executed in a transaction.
 	 * 
 	 * @param item
 	 * @return
