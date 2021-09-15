@@ -83,6 +83,18 @@
                     </exclusion>
                 </exclusions>
             </dependency>
+            <dependency>
+                <groupId>org.openmrs.module</groupId>
+                <artifactId>webservices.rest-omod</artifactId>
+                <version>${webservicesRestVersion}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.openmrs.module</groupId>
+                <artifactId>webservices.rest-omod-common</artifactId>
+                <version>${webservicesRestVersion}</version>
+                <scope>provided</scope>
+            </dependency>
 
             <dependency>
                 <groupId>org.openmrs.api</groupId>
@@ -91,7 +103,6 @@
                 <type>test-jar</type>
                 <scope>test</scope>
             </dependency>
-
             <dependency>
                 <groupId>org.openmrs.web</groupId>
                 <artifactId>openmrs-web</artifactId>
@@ -99,7 +110,6 @@
                 <type>test-jar</type>
                 <scope>test</scope>
             </dependency>
-
             <dependency>
                 <groupId>org.openmrs.test</groupId>
                 <artifactId>openmrs-test</artifactId>
@@ -134,6 +144,20 @@
                 <scope>test</scope>
             </dependency>
             <!-- End OpenMRS core -->
+
+            <dependency>
+                <groupId>org.openmrs.module</groupId>
+                <artifactId>cohort-api</artifactId>
+                <version>${cohortModuleVersion}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.openmrs.module</groupId>
+                <artifactId>cohort-omod</artifactId>
+                <version>${cohortModuleVersion}</version>
+                <scope>provided</scope>
+            </dependency>
 
             <!-- Test dependencies -->
             <dependency>
@@ -295,7 +319,7 @@
         <main.basedir>${project.basedir}</main.basedir>
         <lombokVersion>1.18.16</lombokVersion>
         <cohortModuleVersion>3.0.0-SNAPSHOT</cohortModuleVersion>
-        <webservicesRestVersion>2.29</webservicesRestVersion>
+        <webservicesRestVersion>2.16</webservicesRestVersion>
         <openmrsPlatformVersion>2.4.0</openmrsPlatformVersion>
         <openmrsPlatformToolsVersion>2.4.0</openmrsPlatformToolsVersion>
     </properties>
