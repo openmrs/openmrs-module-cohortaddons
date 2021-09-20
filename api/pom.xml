@@ -10,7 +10,7 @@
 
 	<artifactId>cohortaddons-api</artifactId>
 	<packaging>jar</packaging>
-	<name>Cohort Addons API</name>
+	<name>Cohort Addons Module API</name>
 	<description>API project for Cohort Addons</description>
 
 	<dependencies>
@@ -72,6 +72,14 @@
 			<plugin>
 				<groupId>com.mycila</groupId>
 				<artifactId>license-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>8</source>
+					<target>8</target>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

@@ -9,27 +9,26 @@
  */
 package org.openmrs.module.cohortaddons.api;
 
-import org.openmrs.annotation.Authorized;
-import org.openmrs.api.APIException;
+import java.util.Date;
+import java.util.List;
+
 import org.openmrs.api.OpenmrsService;
-import org.openmrs.module.cohortaddons.CohortAddonsConfig;
+import org.openmrs.module.cohortaddons.CohortVisit;
 import org.springframework.transaction.annotation.Transactional;
 
 public interface CohortVisitService extends OpenmrsService {
 	
-	@Authorized()
 	@Transactional(readOnly = true)
-	Object getItemByUuid(String uuid) throws APIException;
+	List<CohortVisit> getCohortVisitByType(Integer visitType);
 	
-	/**
-	 * Saves an item. Sets the owner to superuser, if it is not set. It can be called by users with this
-	 * module's privilege. It is executed in a transaction.
-	 * 
-	 * @param item
-	 * @return
-	 * @throws APIException
-	 */
-	@Authorized(CohortAddonsConfig.MODULE_PRIVILEGE)
-	@Transactional
-	Object saveItem(Object item) throws APIException;
+	@Transactional(readOnly = true)
+	CohortVisit getCohortVisitByUuid(String uuid);
+	
+	CohortVisit saveCohortVisit(CohortVisit cohortVisit);
+	
+	List<CohortVisit> getCohortVisitsByLocation(Integer id);
+	
+	List<CohortVisit> getCohortVisitsByDate(Date startDate, Date endDate);
+	
+	void purgeCohortVisit(CohortVisit cohortVisit);
 }

@@ -7,8 +7,14 @@
  * Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
  * graphic logo is a trademark of OpenMRS Inc.
  */
-package org.openmrs.module.cohortaddons.web.controller;
+package org.openmrs.module.cohortaddons.api;
 
-public class CohortAddonsRestController {
+import org.openmrs.api.OpenmrsService;
+import org.openmrs.module.cohortaddons.CohortMemberVisit;
+
+public interface CohortMemberVisitService extends OpenmrsService {
 	
+	CohortMemberVisit getCohortMemberVisitByUuid(String uuid);
+	
+	CohortMemberVisit saveCohortMemberVisit(CohortMemberVisit cohortMemberVisit);
 }

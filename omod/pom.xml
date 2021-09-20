@@ -10,7 +10,7 @@
 
     <artifactId>cohortaddons-omod</artifactId>
     <packaging>jar</packaging>
-    <name>Cohort Addons OMOD</name>
+    <name>Cohort Addons Module OMOD</name>
     <description>Omod submodule for Cohort addons</description>
 
     <dependencies>
@@ -88,6 +88,10 @@
         </testResources>
         <plugins>
             <plugin>
+                <groupId>org.openmrs.maven.plugins</groupId>
+                <artifactId>maven-openmrs-plugin</artifactId>
+            </plugin>
+            <plugin>
                 <groupId>net.revelc.code.formatter</groupId>
                 <artifactId>formatter-maven-plugin</artifactId>
             </plugin>
@@ -98,6 +102,26 @@
             <plugin>
                 <groupId>com.mycila</groupId>
                 <artifactId>license-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>Expand moduleApplicationContext and messages</id>
+                        <goals>
+                            <goal>unpack-dependencies</goal>
+                        </goals>
+                        <phase>generate-resources</phase>
+                        <configuration>
+                            <includeGroupIds>${project.parent.groupId}</includeGroupIds>
+                            <includeArtifactIds>${project.parent.artifactId}-api</includeArtifactIds>
+                            <excludeTransitive>true</excludeTransitive>
+                            <includes>**/*</includes>
+                            <outputDirectory>${project.build.directory}/classes</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

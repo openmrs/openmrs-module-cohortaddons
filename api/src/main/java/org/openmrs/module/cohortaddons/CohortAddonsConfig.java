@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 /**
  * Contains module's config.
  */
-@Component("cohortaddons.CohortAddonsConfig")
+@Component("cohort.addons.CohortAddonsConfig")
 public class CohortAddonsConfig {
 	
 	public final static String MODULE_PRIVILEGE = "Cohort Addons Privilege";
