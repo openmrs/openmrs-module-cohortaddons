@@ -57,7 +57,7 @@ public class AbstractHibernateDao<W extends OpenmrsObject & Auditable> {
 		getCurrentSession().saveOrUpdate(entity);
 		return entity;
 	}
-
+	
 	public void delete(W entity) {
 		getCurrentSession().delete(entity);
 	}
@@ -72,12 +72,12 @@ public class AbstractHibernateDao<W extends OpenmrsObject & Auditable> {
 		            "from " + wClazz.getName() + " where " + propValue.getProperty() + " = :" + propValue.getProperty())
 		        .setParameter(propValue.getProperty(), propValue.getValue()).list();
 	}
-
+	
 	public Collection<W> findByOr(List<PropValue> propValues) {
 		//FIXME
 		return Collections.EMPTY_LIST;
 	}
-
+	
 	public Collection<W> findByAnd(List<PropValue> propValues) {
 		//FIXME
 		return Collections.EMPTY_LIST;

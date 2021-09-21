@@ -76,12 +76,6 @@
                 <version>${openmrsPlatformVersion}</version>
                 <type>jar</type>
                 <scope>provided</scope>
-                <exclusions>
-                    <exclusion>
-                        <groupId>javax.servlet</groupId>
-                        <artifactId>servlet-api</artifactId>
-                    </exclusion>
-                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.openmrs.module</groupId>

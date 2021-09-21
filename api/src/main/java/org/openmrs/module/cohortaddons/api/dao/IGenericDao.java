@@ -24,14 +24,14 @@ public interface IGenericDao<W extends OpenmrsObject & Auditable> {
 	W get(final String uuid);
 	
 	W createOrUpdate(W object);
-
+	
 	void delete(W object);
-
+	
 	void delete(String uuid);
-
+	
 	Collection<W> findBy(PropValue propValue);
-
+	
 	Collection<W> findByOr(List<PropValue> propValues);
-
+	
 	Collection<W> findByAnd(List<PropValue> propValues);
 }
