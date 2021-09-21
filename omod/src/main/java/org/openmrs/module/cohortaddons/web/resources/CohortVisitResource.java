@@ -9,11 +9,10 @@
  */
 package org.openmrs.module.cohortaddons.web.resources;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
-import org.openmrs.Location;
-import org.openmrs.api.LocationService;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.cohort.rest.v1_0.resource.CohortRest;
 import org.openmrs.module.cohortaddons.CohortVisit;
@@ -117,19 +116,12 @@ public class CohortVisitResource extends DataDelegatingCrudResource<CohortVisit>
 	
 	@Override
 	protected PageableResult doSearch(RequestContext context) {
-		// TODO Auto-generated method stub
-		String location = context.getParameter("location");
-		if (StringUtils.isNotBlank(location)) {
-			Location cohortLocation = Context.getService(LocationService.class).getLocationByUuid(location);
-			if (cohortLocation == null) {
-				throw new RuntimeException("No Location found for that uuid");
-			} else {
-				int locationId = cohortLocation.getLocationId();
-				List<CohortVisit> cohorts = cohortVisitService.getCohortVisitsByLocation(locationId);
-				return new NeedsPaging<CohortVisit>(cohorts, context);
-			}
+		String locationUuid = context.getParameter("location");
+		List<CohortVisit> cohorts = new ArrayList<CohortVisit>();
+		if (StringUtils.isNotBlank(locationUuid)) {
+			cohorts = cohortVisitService.getCohortVisitsByLocationUuid(locationUuid);
 		}
 		
-		return super.doSearch(context);
+		return new NeedsPaging<CohortVisit>(cohorts, context);
 	}
 }

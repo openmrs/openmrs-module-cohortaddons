@@ -26,7 +26,7 @@ public interface CohortVisitService extends OpenmrsService {
 	
 	CohortVisit saveCohortVisit(CohortVisit cohortVisit);
 	
-	List<CohortVisit> getCohortVisitsByLocation(Integer id);
+	List<CohortVisit> getCohortVisitsByLocationUuid(String locationUuid);
 	
 	List<CohortVisit> getCohortVisitsByDate(Date startDate, Date endDate);
 	

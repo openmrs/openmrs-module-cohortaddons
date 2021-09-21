@@ -12,6 +12,10 @@ package org.openmrs.module.cohortaddons.api.impl;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.velocity.exception.ResourceNotFoundException;
+import org.openmrs.Location;
+import org.openmrs.api.LocationService;
+import org.openmrs.api.context.Context;
 import org.openmrs.api.impl.BaseOpenmrsService;
 import org.openmrs.module.cohortaddons.CohortVisit;
 import org.openmrs.module.cohortaddons.api.CohortVisitService;
@@ -49,9 +53,14 @@ public class CohortVisitServiceImpl extends BaseOpenmrsService implements Cohort
 	}
 	
 	@Override
-	public List<CohortVisit> getCohortVisitsByLocation(Integer locationId) {
-		PropValue propValues = PropValue.builder().property("location_id").value(locationId).build();
-		return (List<CohortVisit>) dao.findBy(propValues);
+	public List<CohortVisit> getCohortVisitsByLocationUuid(String locationUuid) {
+		Location cohortLocation = Context.getService(LocationService.class).getLocationByUuid(locationUuid);
+		if (cohortLocation == null) {
+			throw new ResourceNotFoundException("Location with UUID " + locationUuid + " is unknown");
+		} else {
+			PropValue propValues = PropValue.builder().property("location_id").value(cohortLocation.getLocationId()).build();
+			return (List<CohortVisit>) dao.findBy(propValues);
+		}
 	}
 	
 	@Override
