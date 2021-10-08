@@ -14,7 +14,7 @@ import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.openmrs.api.context.Context;
-import org.openmrs.module.cohort.rest.v1_0.resource.CohortRest;
+import org.openmrs.module.cohort.web.resource.CohortMainRestController;
 import org.openmrs.module.cohortaddons.CohortVisit;
 import org.openmrs.module.cohortaddons.api.CohortVisitService;
 import org.openmrs.module.webservices.rest.web.RequestContext;
@@ -30,7 +30,7 @@ import org.openmrs.module.webservices.rest.web.resource.impl.NeedsPaging;
 import org.openmrs.module.webservices.rest.web.response.ResourceDoesNotSupportOperationException;
 import org.openmrs.module.webservices.rest.web.response.ResponseException;
 
-@Resource(name = RestConstants.VERSION_1 + CohortRest.COHORT_NAMESPACE
+@Resource(name = RestConstants.VERSION_1 + CohortMainRestController.COHORT_NAMESPACE
         + "/cohortvisit", supportedClass = CohortVisit.class, supportedOpenmrsVersions = { "1.8 - 2.*" })
 public class CohortVisitResource extends DataDelegatingCrudResource<CohortVisit> {
 	

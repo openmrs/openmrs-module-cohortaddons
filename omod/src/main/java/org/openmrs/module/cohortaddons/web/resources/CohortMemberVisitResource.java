@@ -10,7 +10,7 @@
 package org.openmrs.module.cohortaddons.web.resources;
 
 import org.openmrs.api.context.Context;
-import org.openmrs.module.cohort.rest.v1_0.resource.CohortRest;
+import org.openmrs.module.cohort.web.resource.CohortMainRestController;
 import org.openmrs.module.cohortaddons.CohortMemberVisit;
 import org.openmrs.module.cohortaddons.api.CohortMemberVisitService;
 import org.openmrs.module.webservices.rest.web.RequestContext;
@@ -24,7 +24,7 @@ import org.openmrs.module.webservices.rest.web.resource.impl.DelegatingResourceD
 import org.openmrs.module.webservices.rest.web.response.ResourceDoesNotSupportOperationException;
 import org.openmrs.module.webservices.rest.web.response.ResponseException;
 
-@Resource(name = RestConstants.VERSION_1 + CohortRest.COHORT_NAMESPACE
+@Resource(name = RestConstants.VERSION_1 + CohortMainRestController.COHORT_NAMESPACE
         + "/cohortmembervisit", supportedClass = CohortMemberVisit.class, supportedOpenmrsVersions = { "1.8 - 2.*" })
 public class CohortMemberVisitResource extends DataDelegatingCrudResource<CohortMemberVisit> {
 	

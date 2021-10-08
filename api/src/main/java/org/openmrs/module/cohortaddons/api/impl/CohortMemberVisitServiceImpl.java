@@ -10,9 +10,9 @@
 package org.openmrs.module.cohortaddons.api.impl;
 
 import org.openmrs.api.impl.BaseOpenmrsService;
+import org.openmrs.module.cohort.api.dao.IGenericDao;
 import org.openmrs.module.cohortaddons.CohortMemberVisit;
 import org.openmrs.module.cohortaddons.api.CohortMemberVisitService;
-import org.openmrs.module.cohortaddons.api.dao.IGenericDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

@@ -20,10 +20,13 @@ import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.hibernate.SessionFactory;
 import org.junit.Before;
 import org.junit.Test;
+import org.openmrs.module.cohort.api.dao.GenericDao;
+import org.openmrs.module.cohort.api.dao.PropValue;
 import org.openmrs.module.cohortaddons.CohortMemberVisit;
 import org.openmrs.module.cohortaddons.SpringTestConfiguration;
 import org.openmrs.test.BaseModuleContextSensitiveTest;
@@ -67,8 +70,9 @@ public class CohortMemberVisitDaoTest extends BaseModuleContextSensitiveTest {
 	}
 	
 	@Test
-	public void shouldReturnCollectionOfCohortMemberVisitsWhenFindByCohortVisit() {
-		PropValue propValue = PropValue.builder().property("cohort_visit_id").value("100").build();
+	public void shouldReturnCollectionOfCohortMemberVisitsWhenFindByCohortVisitID() {
+		PropValue propValue = PropValue.builder().property("id").associationPath(Optional.of("cohortVisit")).value(100)
+		        .build();
 		Collection<CohortMemberVisit> cohortMemberVisitsByCohortVisit = dao.findBy(propValue);
 		
 		assertThat(cohortMemberVisitsByCohortVisit, notNullValue());
@@ -78,8 +82,9 @@ public class CohortMemberVisitDaoTest extends BaseModuleContextSensitiveTest {
 	}
 	
 	@Test
-	public void shouldReturnEmptyCollectionWhenFindByBadCohortVisit() {
-		PropValue propValue = PropValue.builder().property("cohort_visit_id").value("999000").build();
+	public void shouldReturnEmptyCollectionWhenFindByBadCohortVisitID() {
+		PropValue propValue = PropValue.builder().property("id").associationPath(Optional.of("cohortVisit")).value(9093)
+		        .build();
 		
 		assertThat(dao.findBy(propValue), empty());
 	}

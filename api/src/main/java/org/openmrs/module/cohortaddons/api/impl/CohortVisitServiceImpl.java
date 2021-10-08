@@ -17,10 +17,10 @@ import org.openmrs.Location;
 import org.openmrs.api.LocationService;
 import org.openmrs.api.context.Context;
 import org.openmrs.api.impl.BaseOpenmrsService;
+import org.openmrs.module.cohort.api.dao.IGenericDao;
+import org.openmrs.module.cohort.api.dao.PropValue;
 import org.openmrs.module.cohortaddons.CohortVisit;
 import org.openmrs.module.cohortaddons.api.CohortVisitService;
-import org.openmrs.module.cohortaddons.api.dao.IGenericDao;
-import org.openmrs.module.cohortaddons.api.dao.PropValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
