@@ -311,7 +311,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <main.basedir>${project.basedir}</main.basedir>
-        <lombokVersion>1.18.16</lombokVersion>
+        <lombokVersion>1.18.20</lombokVersion>
         <cohortModuleVersion>3.0.0-SNAPSHOT</cohortModuleVersion>
         <webservicesRestVersion>2.16</webservicesRestVersion>
         <openmrsPlatformVersion>2.0.5</openmrsPlatformVersion>
